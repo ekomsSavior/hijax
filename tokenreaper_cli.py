@@ -10,6 +10,7 @@ BANNER = r'''
   ███    ███   ███      ███   ███    ███  ▄███     ███▄  
   ███    █▀    █▀   █▄ ▄███   ███    █▀  ████       ███▄ 
                     ▀▀▀▀▀▀                                
+Session Hijacking Framework by ekomsSavior
 '''
 
 MENU = '''
