@@ -10,7 +10,6 @@ BANNER = r'''
   ███    ███   ███      ███   ███    ███  ▄███     ███▄  
   ███    █▀    █▀   █▄ ▄███   ███    █▀  ████       ███▄ 
                     ▀▀▀▀▀▀                                
-Session Hijacking Framework by ekomsSavior
 '''
 
 MENU = '''
@@ -23,7 +22,7 @@ MENU = '''
 def main():
     print(BANNER)
     time.sleep(1)
-    print("Welcome to TOKENREAPER – Session Hijacking Framework\n")
+    print("Welcome to H I J A X – Session Hijacking Framework\n")
     while True:
         print(MENU)
         choice = input("Choose an option: ").strip()
