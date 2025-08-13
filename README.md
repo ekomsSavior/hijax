@@ -2,17 +2,9 @@
 # H I J A X
 
 **Session Hijacking Framework by ekomsSavior**
-  ▄█    █▄     ▄█       ▄█    ▄████████ ▀████    ▐████▀  
- ███    ███   ███      ███   ███    ███   ███▌   ████▀  
- ███    ███   ███▌     ███   ███    ███    ███  ▐███    
-▄███▄▄▄▄███▄▄ ███▌     ███   ███    ███    ▀███▄███▀    
-▀▀███▀▀▀▀███▀  ███▌     ███ ▀███████████    ████▀██▄     
-  ███    ███   ███      ███   ███    ███   ▐███  ▀███    
-  ███    ███   ███      ███   ███    ███  ▄███     ███▄  
-  ███    █▀    █▀   █▄ ▄███   ███    █▀  ████       ███▄  
-                    ▀▀▀▀▀▀                                
+ 
 
-Hijax is a red team tool for hijacking live user sessions via stolen browser tokens, cookies, and OAuth strings.  
+Hijax is a tool for hijacking live user sessions via stolen browser tokens, cookies, and OAuth strings.  
 It mimics how real attackers hijack Discord, Instagram, Google, and Facebook ETC. accounts without ever logging in.
 
 > **Educational & ethical use only** 
