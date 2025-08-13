@@ -24,6 +24,7 @@ It mimics how real attackers hijack Discord, Instagram, Google, and Facebook ETC
 
 ##  Project Structure
 
+```
 hijax/
 ├── hijax_cli.py             # CLI with banner and menu
 ├── token_harvester.py       # Steals browser cookies
@@ -36,6 +37,7 @@ hijax/
 │   └── stolen_tokens.txt    # All harvested tokens go here
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
@@ -46,6 +48,7 @@ hijax/
 ```bash
 git clone https://github.com/yourname/hijax.git
 cd hijax
+```
 
 2. Install dependencies
 
