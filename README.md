@@ -51,24 +51,27 @@ cd hijax
 ```
 
 2. Install dependencies
-
+   
+```bash
 sudo apt update
 sudo apt install -y python3 python3-pip chromium-driver
 pip3 install -r requirements.txt --break-system-packages
-
+```
 
 ⸻
 
  Run Hijax
 
+```bash
 python3 hijax_cli.py
-
+```
 
 ⸻
 
  Module Breakdown
 
 1. Harvest Cookies
+
 
 python3 token_harvester.py
 
