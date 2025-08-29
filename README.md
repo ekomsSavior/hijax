@@ -29,23 +29,7 @@ Hijax is a red team tool designed to hijack live user sessions from browser envi
 
 ---
 
-## Project Structure
-
-```
-hijax/
-├── hijax_cli.py             # Menu-based launcher
-├── token_harvester.py       # Extracts browser cookies (local)
-├── token_injector.py        # Injects session cookies into browser
-├── token_replayer.py        # Headless API session impersonation
-├── utils/
-│   ├── clipboard_monitor.py # Clipboard listener (optional)
-│   └── browser_parser.py    # (future: Chrome/Firefox master key decryptor)
-├── loot/
-│   └── stolen_tokens.txt    # Extracted tokens saved here
-├── README.md
-```
-
----
+![image0(3)](https://github.com/user-attachments/assets/8ac814d4-a631-4108-8ffe-f7bde510d450)
 
 ## Installation
 
@@ -65,7 +49,7 @@ sudo apt update && sudo apt install python3 python3-pip chromium-driver curl jq 
 ```bash
 pip3 install selenium requests browser-cookie3 beautifulsoup4 pycryptodome pyperclip --break-system-packages
 ```
-![image0(3)](https://github.com/user-attachments/assets/8ac814d4-a631-4108-8ffe-f7bde510d450)
+
 
 ---
 
