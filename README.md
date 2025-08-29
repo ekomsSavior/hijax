@@ -48,7 +48,7 @@ hijax/
 
 ---
 
-## 🛠 Installation
+## Installation
 
 ### 1. Clone the repository
 
@@ -66,6 +66,7 @@ sudo apt update && sudo apt install python3 python3-pip chromium-driver curl jq 
 ```bash
 pip3 install selenium requests browser-cookie3 beautifulsoup4 pycryptodome pyperclip --break-system-packages
 ```
+![image0(3)](https://github.com/user-attachments/assets/8ac814d4-a631-4108-8ffe-f7bde510d450)
 
 ---
 
