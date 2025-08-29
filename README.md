@@ -1,6 +1,7 @@
 # H I J A X
 
 **Session Hijacking Framework by ekomsSavior**
+
 *“Steal sessions. Own devices. Replay reality”*
 
 ---
