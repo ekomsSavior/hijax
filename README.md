@@ -25,9 +25,8 @@ Hijax is a red team tool designed to hijack live user sessions from browser envi
 *  Capture clipboard tokens (Discord, JWT, OAuth)
 *  Inject cookies directly into browser (bypass login/2FA)
 *  Replay sessions via HTTP requests (no GUI needed)
-*  Serve implants via ScamTrack (HTML+JS drop)
 *  Reuse hijacked sessions for DM dumping, file list extraction, and more
-
+*  Serve implants via ScamTrack (HTML+JS drop) #COMING SOON#
 ---
 
 ![image0(3)](https://github.com/user-attachments/assets/8ac814d4-a631-4108-8ffe-f7bde510d450)
