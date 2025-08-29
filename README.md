@@ -61,13 +61,9 @@ pip3 install selenium requests browser-cookie3 beautifulsoup4 pycryptodome pyper
 python3 hijax_cli.py
 ```
 
-This gives you a clean, noob-friendly menu to:
+This gives you :
 
-1. Harvest cookies
-2. Inject session into browser
-3. Replay stolen tokens headlessly
-4. Generate a custom remote implant 
-5. Exit
+![hijax](https://github.com/user-attachments/assets/c48b119e-c10c-473f-a6b5-995aff1fa6b4)
 
 ---
 
