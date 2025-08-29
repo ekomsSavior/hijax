@@ -37,7 +37,6 @@ hijax/
 ├── token_harvester.py       # Extracts browser cookies (local)
 ├── token_injector.py        # Injects session cookies into browser
 ├── token_replayer.py        # Headless API session impersonation
-├── hijax_remote_implant.py  # Implant for remote cookie dumping (via C2 or webhook)
 ├── utils/
 │   ├── clipboard_monitor.py # Clipboard listener (optional)
 │   └── browser_parser.py    # (future: Chrome/Firefox master key decryptor)
