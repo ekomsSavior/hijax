@@ -1,59 +1,58 @@
 # H I J A X
 
 **Session Hijacking Framework by ekomsSavior**
-
-*“Steal sessions. Own devices. Replay reality”*
-
----
-
-Hijax is a red team tool designed to hijack live user sessions from browser environments. It mimics how real-world stealers and web-based implants exfiltrate tokens and hijack authenticated sessions across platforms like:
-
-*  Discord
-*  Instagram
-*  Facebook
-*  Google
-*  iCloud
-*  Anything that stores session cookies
-
->  **For educational and ethical testing purposes only.** Use only on systems you own or have permission to test.
+*“Steal sessions. Own devices. Replay reality.”*
 
 ---
 
-## Features
+Hijax is a modular red team framework built to demonstrate and simulate **session hijacking** from browsers and infected hosts. It mimics how real stealers, malware, and implants exfiltrate tokens and hijack authenticated sessions across:
 
-*  Extract session cookies from Chrome/Firefox
-*  Capture clipboard tokens (Discord, JWT, OAuth)
-*  Inject cookies directly into browser (bypass login/2FA)
-*  Replay sessions via HTTP requests (no GUI needed)
-*  Reuse hijacked sessions for DM dumping, file list extraction, and more
-*  Serve implants via ScamTrack (HTML+JS drop) #COMING SOON#
+* Discord
+* Instagram
+* Google
+* Facebook
+* iCloud
+* Any platform that stores session cookies or OAuth tokens
+
+>  **For educational and ethical testing only. Do not use on targets you do not own or have explicit permission to assess.**
+
 ---
 
-![image0(3)](https://github.com/user-attachments/assets/8ac814d4-a631-4108-8ffe-f7bde510d450)
+##  Features
 
-## Installation
+* Extract live session cookies from Chrome/Firefox
+* Hijack sessions via browser cookie injection
+* Replay sessions via API access (no GUI needed)
+* Monitor clipboard for Discord or JWT tokens
+* Drop browser or remote implants for passive exfiltration
+* Auto-generate a standalone **implant script** to deploy to remote systems
+* Seamless integration with [ScamTrack](https://github.com/yourorg/scamtrack) for HTML+JS payload delivery
 
-### 1. Clone the repository
+---
+
+![Screenshot_2025-08-29_10_52_12](https://github.com/user-attachments/assets/1948d982-60c7-4974-8dd4-8da4c43d40d1)
+
+---
+
+##  Installation
+
+### Clone the Repo
 
 ```bash
 git clone https://github.com/yourname/hijax.git
 cd hijax
 ```
 
-### 2. Install required tools and libraries
+### Install Dependencies
 
 ```bash
-sudo apt update && sudo apt install python3 python3-pip chromium-driver curl jq unzip -y
-```
-
-```bash
+sudo apt update && sudo apt install -y python3 python3-pip chromium-driver curl jq unzip
 pip3 install selenium requests browser-cookie3 beautifulsoup4 pycryptodome pyperclip --break-system-packages
 ```
 
-
 ---
 
-## How to Use
+##  How to Use
 
 ### Launch the CLI
 
@@ -61,122 +60,142 @@ pip3 install selenium requests browser-cookie3 beautifulsoup4 pycryptodome pyper
 python3 hijax_cli.py
 ```
 
-This gives you a clean menu to:
+This gives you a clean, noob-friendly menu to:
 
-* \[1] Harvest cookies
-* \[2] Inject token into browser
-* \[3] Replay session headlessly
-* \[4] Exit
+1. Harvest cookies
+2. Inject session into browser
+3. Replay stolen tokens headlessly
+4. Generate a custom remote implant 
+5. Exit
 
 ---
 
-### \[1] Harvest Browser Cookies
+### Cookie Harvester
 
 ```bash
 python3 token_harvester.py
 ```
 
-* Scans Chrome and Firefox for stored session cookies
-* Targets sites like Instagram, Discord, Google, Facebook, and iCloud
-* Also logs system fingerprint info (hostname, IP, timestamp)
-* Saves all output to `loot/stolen_tokens.txt`
+* Extracts session cookies from Chrome/Firefox
+* Dumps everything to `loot/stolen_tokens.txt`
+* Logs IP, hostname, timestamps, and platform
 
 ---
 
-###  \[2] Clipboard Monitor (Optional)
+###  Clipboard Token Monitor
 
 ```bash
 python3 utils/clipboard_monitor.py
 ```
 
-* Monitors your clipboard for stolen tokens (Discord, MFA, JWTs, etc.)
-* Auto-writes any matches to `stolen_tokens.txt`
-* Great for watching what gets copied during phishing payload use
+* Watches 24/7 for Discord, JWT, MFA tokens copied to clipboard
+* Writes loot directly to `loot/stolen_tokens.txt`
 
 ---
 
-###  \[3] Inject Tokens Into Live Browser Session
+###  Token Injection (Browser Hijack)
 
 ```bash
 python3 token_injector.py
 ```
 
-* Opens a Selenium browser
-* Lets you choose a target (e.g., Instagram)
-* Injects matching cookies from `stolen_tokens.txt`
-* Reloads the page — you’re now impersonating the real user 🔓
+* Launches Chromium with Selenium
+* Injects stolen cookies into a live session
+* Bypasses login/2FA and impersonates the victim
 
 ---
 
-###  \[4] Replay Sessions (Headless API Access)
+###  Headless API Replay (No GUI)
 
 ```bash
 python3 token_replayer.py
 ```
 
-* No browser needed — works with raw tokens
-* Lets you impersonate the user via API endpoints:
-
-  * Dump Discord DMs
-  * View Instagram profile
-  * List Google Drive contents
-  * Pull Facebook mobile session
+* Allows recon, DM dumping, file listing, etc. via API
+* Works with Discord, Instagram, Facebook, Google, and others
+* No GUI needed — all token-based impersonation
 
 ---
 
-##  Implant Delivery Mode
+##  Implant Builder (NEW!)
 
-Use **Hijax with ScamTrack or GhostMode** to launch HTML-based session stealers.
+```bash
+[4] Generate Implant via CLI
+```
 
-### Example: `hijax_browser_implant.html`
+* Auto-generates a fully functional Python implant:
 
-* Hosted via Flask + Ngrok
-* Extracts:
+  * `hijax_remote_implant.py`
+* Can be deployed on remote systems to extract and send tokens back
+* Logs Chrome cookies + device fingerprint
+* Sends data to your webhook or stores it locally
+* No malware dependencies, simple + stealthy
+
+ Use this when:
+
+* You want a creds stealer
+* You want to bundle it into another payload
+* You want to serve the implant via ScamTrack/QR
+
+---
+
+##  ScamTrack Integration
+
+Hijax was designed to work natively with **ScamTrack** for browser-based payload delivery.
+
+###  Payload: `hijax_browser_implant.html`
+
+* Grabs:
 
   * `document.cookie`
-  * `localStorage`
-  * Clipboard text (if permissions allow)
-* Sends to Flask route `/api/hijax`
-* Logs to `loot/hijax_loot.txt`
-* Silently redirects user (e.g. to instagram.com)
+  * `window.localStorage`
+  * Clipboard contents (if available)
+* Sends it to:
 
-### How to Use:
+  ```
+  POST /api/hijax
+  ```
+* Output stored in: `loot/hijax_loot.txt`
+* Optional redirect to legit site (e.g., Instagram)
 
-1. Load it into ScamTrack payload folder
-2. Build a trap link or QR code
-3. User scans the tag or opens the link
-4. Loot is logged + parsed
+###  How to Deploy via ScamTrack
 
----
+1. Drop `hijax_browser_implant.html` into the ScamTrack `payloads/` directory
+2. Start the Flask server via ScamTrack CLI
+3. Ngrok URL will serve the implant
+4. Share QR code or phishing link
+5. Results get logged + parsed by Hijax
 
-## Remote Mode
-
-### Drop `hijax_remote_implant.py` onto a victim machine
-
-* Steals cookies from Chrome silently
-* Logs device info
-* Sends `stolen_tokens.txt` back to a Discord webhook or C2
-* Works like a miniature info-stealer, no malware dependencies
-
-Use `token_replayer.py` to replay those tokens from attacker box.
 
 ---
 
-## Token Sources Hijax Supports
+##  Token Sources & Methods
 
-| Target Platform | Method of Hijack                           |
-| --------------- | ------------------------------------------ |
-| Instagram       | `sessionid`, `ds_user_id` (cookies)        |
-| Discord         | `token`, `__dcfduid` (cookie or clipboard) |
-| Google          | `SID`, `SAPISID` (browser cookie)          |
-| Facebook        | `c_user`, `xs` (browser cookie)            |
-| iCloud          | MEAuthToken (if extracted)                 |
+| Platform  | Method                    | Source                 |
+| --------- | ------------------------- | ---------------------- |
+| Discord   | `token`, `__dcfduid`      | Cookie or clipboard    |
+| Instagram | `sessionid`, `ds_user_id` | Cookie                 |
+| Google    | `SID`, `SAPISID`          | Cookie                 |
+| Facebook  | `c_user`, `xs`            | Cookie                 |
+| iCloud    | `MEAuthToken`             | Cookie or localStorage |
+
+---
+
+##  Red Team Workflow
+
+1. Harvest or generate implant from Hijax CLI
+2. Serve implant via ScamTrack or deploy directly
+3. Tokens are exfiltrated to attacker machine
+4. Replay session or inject into Selenium browser
+5. Dump user data, messages, sessions, etc.
 
 ---
 
 ##  Disclaimer
 
-* Hijax is for red team simulation, education, and security awareness.
-* Do not use this tool against live systems without **explicit permission**.
-* Hijacking session cookies is illegal without consent and may violate CFAA or other laws.
+Hijax is for **educational**, **research**, and **red team simulation** only.
 
+Do **not** use against real systems, individuals, or networks without **explicit written permission**.
+Unauthorized use may violate CFAA, GDPR, or other laws.
+
+![Screenshot_2025-08-29_10_52_12(1)](https://github.com/user-attachments/assets/ebbe32d7-cfe5-4aa7-872c-bc0d2d326d7c)
