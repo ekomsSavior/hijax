@@ -39,7 +39,7 @@ Hijax is a modular red team framework built to demonstrate and simulate **sessio
 ### Clone the Repo
 
 ```bash
-git clone https://github.com/yourname/hijax.git
+git clone https://github.com/ekomsSavior/hijax.git
 cd hijax
 ```
 
