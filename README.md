@@ -6,7 +6,7 @@
 
 ---
 
-Hijax is a modular red team framework built to demonstrate and simulate **session hijacking** from browsers and infected hosts. It mimics how real stealers, malware, and implants exfiltrate tokens and hijack authenticated sessions across:
+Hijax is a modular red team framework built to demonstrate and simulate **session hijacking** from browsers and infected hosts. It exfiltrates tokens and hijacks authenticated sessions across:
 
 * Discord
 * Instagram
